@@ -12,6 +12,33 @@ class LifeGame:
         self.matrix.append(CicledList(line))
         self.next_matrix.append(CicledList(line))
 
+    def full(self, x, y, cell):
+        """Create matrix x*y full of cell(True or False)"""
+        self.matrix.clear()
+        self.next_matrix.clear()
+
+        for j in range(y):
+            line = []
+            for i in range(x):
+                line.append(cell)
+            self.append_line(line)
+
+    def zeros(self, x, y):
+        """Create matrix x*y full of dead cells"""
+        self.full(x, y, False)
+
+    def ones(self, x, y):
+        """Create matrix x*y full of live cells"""
+        self.full(x, y, True)
+
+    def vitalize(self, x, y):
+        """Set cell[x][y] to live state"""
+        self.matrix[x][y] = True
+
+    def kill(self, x, y):
+        """Set cell[x][y] to dead state"""
+        self.matrix[x][y] = False
+
     def __str__(self):
         return 'Game position:\n' + self.print()
 
