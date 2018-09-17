@@ -61,12 +61,11 @@ ax = plt.subplot(111)
 canvas = ax.figure.canvas
 
 def run(lg2):
-    # for _ in range(3):
-        for _2 in lg2.run(70):
-            plt.axis('off')
-            plt.imshow(lg2.get_raw(), cmap=plt.cm.viridis) #, interpolation='quadric')
-            canvas.draw()
-            plt.clf()
+    for _2 in lg2.run(70):
+        plt.axis('off')
+        plt.imshow(lg2.get_raw(), cmap=plt.cm.viridis) #, interpolation='quadric')
+        canvas.draw()
+        plt.clf()
 
 manager = plt.get_current_fig_manager()
 manager.window.after(100, run, lg)
