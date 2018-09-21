@@ -94,3 +94,23 @@ class LifeGame:
 
     def get_raw(self):
         return self.matrix
+
+    def set_glider(self, x, y):
+        """Set position to glider on field x*y"""
+        self.zeros(x, y)
+        self.vitalize(0, 1)
+        self.vitalize(1, 2)
+        self.vitalize(2, 0)
+        self.vitalize(2, 1)
+        self.vitalize(2, 2)
+
+    def set_r_pentamino(self, x, y):
+        """Set position to R-pentamino on field x*y"""
+        self.zeros(x, y)
+        hx = x // 2
+        hy = y // 2
+        self.vitalize(hx + 3, hy + 2)
+        self.vitalize(hx + 3, hy + 3)
+        self.vitalize(hx + 4, hy + 1)
+        self.vitalize(hx + 4, hy + 2)
+        self.vitalize(hx + 5, hy + 2)
