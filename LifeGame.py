@@ -114,3 +114,18 @@ class LifeGame:
         self.vitalize(hx + 4, hy + 1)
         self.vitalize(hx + 4, hy + 2)
         self.vitalize(hx + 5, hy + 2)
+
+    def read_file(self, filename):
+        """Read configuration from file where 'X' or 'x' for live cell and '0' for dead"""
+        self.matrix.clear()
+        self.next_matrix.clear()
+
+        with open(filename) as file:
+            for line in file:
+                added_line = []
+                for i in line:
+                    if i == 'X' or i == 'x':
+                        added_line.append(True)
+                    elif i == '0':
+                        added_line.append(False)
+                self.append_line(added_line)

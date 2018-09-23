@@ -13,8 +13,10 @@ def run(lg2):
 
 lg = LifeGame()
 
-lg.set_r_pentamino(40, 40)
+# lg.set_r_pentamino(40, 40)
 # lg.set_glider(15, 15)
+lg.read_file('glider.txt')
+# print(lg)
 
 ax = plt.subplot(111)
 canvas = ax.figure.canvas
